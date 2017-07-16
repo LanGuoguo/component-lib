@@ -1,36 +1,14 @@
-const path = require("path");
+const tsc = require("typescript");
 
-module.exports = {
-  entry: [
-    "./lib/index.ts"
-  ],
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".scss"]
-  },
-  output: {
-    path: path.join(__dirname, "build"),
-    filename: "index.js",
-    library: {
-      root: "ComponentLib",
-      amd: "component-lib",
-      commonjs: "componnet-lib"
-    },
-    libraryTarget: "umd"
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.ts?x$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-          {
-            loader: "awesome-typescript-loader"
-          }
-        ],
-      }
-    ],
-  },
+const webpackConfig = require("fs").readFileSync("./webpack.config.ts", "utf8");
+
+const options = {
+  compilerOptions: {
+    module: "commonjs",
+    target: "es5",
+    allowJs: false,
+    checkJs: false
+  }
 };
+
+eval(tsc.transpileModule(webpackConfig, options).outputText);
