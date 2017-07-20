@@ -26,7 +26,6 @@
     "@types/react": "^15.0.38",
     "@types/react-dom": "^15.5.1",
     "@types/webpack": "^3.0.4",
-    "antd-tools": "^1.6.0",
     "awesome-typescript-loader": "^3.2.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
