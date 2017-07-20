@@ -32,9 +32,9 @@ gulp.task("default", () => {
   tsxEntries.forEach((tsxEntry, tsxEntryIndex) => {
     const [[ entryName, entryPath ]] = Object.entries(tsxEntry);
     if (entryName === "index") {
-      tscOptions.outDir = path.resolve(__dirname, "components");
+      tscOptions.outDir = path.resolve(__dirname, "components_temp");
     } else {
-      tscOptions.outDir = path.resolve(__dirname, "components", entryName);
+      tscOptions.outDir = path.resolve(__dirname, "components_temp", entryName);
     }
 
     gulp
