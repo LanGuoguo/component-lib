@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true, //allows you to use ES2015 style default imports even when the code you’re importing doesn’t have an ES2015 default export.
     "module": "es6",// use ES2015 modules
     "target": "es6",// compile to ES2015 (Babel will do the rest)
@@ -11,12 +9,8 @@
     "sourceMap": true,// make TypeScript generate sourcemaps
     "allowJs": false,
     "jsx": "preserve",// enable JSX mode, but "preserve" tells TypeScript to not transform it (we'll use Babel)
-    "baseUrl": "./lib",
     "moduleResolution": "node"
   },
-  "include": [
-    "./lib/**/*"
-  ],
   "exclude": [
     "node_modules" // don't run on any code in the node_modules directory
   ]

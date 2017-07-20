@@ -7,7 +7,8 @@ const options = {
     module: "commonjs",
     target: "es5",
     allowJs: false,
-    checkJs: false
+    checkJs: false,
+    // allowSyntheticDefaultImports: true,
   }
 };
 

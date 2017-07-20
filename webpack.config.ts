@@ -1,16 +1,19 @@
 import * as webpack from "webpack";
+import * as CleanWebpackPlugin from "clean-webpack-plugin";
 import * as path from "path";
 
 const config: webpack.Configuration = {
-  entry: [
-    "./lib/index.ts"
-  ],
+  context: path.resolve(__dirname),
+  entry: {
+    // index: "./src/index.ts",
+    button: "./src/elements/button/index.ts",
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".scss"]
   },
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name]/index.js",
     library: "component-lib", // TODO fix library
     // library: {
     //   root: "ComponentLib",
@@ -25,9 +28,9 @@ const config: webpack.Configuration = {
         test: /\.ts?x$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: "babel-loader",
-          },
+          // {
+          //   loader: "babel-loader",
+          // },
           {
             loader: "awesome-typescript-loader",
           }
@@ -35,6 +38,13 @@ const config: webpack.Configuration = {
       }
     ],
   },
+  externals: [
+    "react",
+    "react-dom",
+  ],
+  plugins: [
+    new CleanWebpackPlugin(["dist"]),
+  ],
 };
 
 export default config;
