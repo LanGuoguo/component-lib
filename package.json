@@ -2,12 +2,12 @@
   "name": "component-lib",
   "version": "0.1.0",
   "description": "an example component library built with React!",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run gulp && npm run babel",
     "dist": "webpack --config webpack.config.js",
     "gulp": "gulp",
-    "babel": "babel components -d lib",
+    "babel": "babel components_temp -d lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build"
   },
